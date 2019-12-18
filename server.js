@@ -101,7 +101,7 @@ app.post("/addItems/:id", function(req, res) {
       message: "Item '" + id + "' has been added to the shopping-cart."
     });
   } else {
-    res.status(404).json("Item '" + id + "' not found.");
+    res.status(404).json({ message: "Item '" + id + "' not found." });
   }
 });
 
