@@ -115,7 +115,7 @@ app.get("/retrieveTotal", function(req, res) {
 const server = app.listen(8888, function() {
   const host = server.address().address;
   const port = server.address().port;
-  console.log("Server listening at http://%s:%s", host, port);
+  // console.log("Server listening at http://%s:%s", host, port);
 });
 
 module.exports = app;
