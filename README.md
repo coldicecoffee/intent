@@ -20,11 +20,13 @@ This simple application is a prototype for Shopping Cart API with a client-side 
 
 #### How to Start
 
-```
+```javascript
 /* First, Navigate to client */
 cd client
+
 /* Second, Install the needed packages */
 npm install
+
 /* Then start React */
 npm start
 ```
@@ -43,7 +45,7 @@ Runs on **http://localhost:3000**
 
 #### How to Start
 
-```
+```javascript
 /* First, Navigate to server */
 cd server
 /* Second, Install the needed packages */
@@ -55,7 +57,8 @@ npm start
 Runs on **http://localhost:8888**
 
 #### About Tests
-```
+
+```javascript
 /* First, Navigate to server */
 cd server
 /* To run the tests */
