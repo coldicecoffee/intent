@@ -6,9 +6,6 @@ class Home extends Component {
   handleClick = id => {
     this.props.addToCart(id);
   };
-  increaseCount = () => {
-
-  };
 
   render() {
     let itemList = this.props.items.map(item => {
@@ -22,7 +19,6 @@ class Home extends Component {
               className="btn-floating halfway-fab waves-effect waves-light red"
               onClick={() => {
                 this.handleClick(item.id);
-                this.increaseCount();
               }}
             >
               <i className="material-icons">add</i>

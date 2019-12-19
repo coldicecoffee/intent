@@ -18,7 +18,9 @@ class Navbar extends Component {
             <li>
               <Link to="/cart" className="cart-link">
                 <i className="material-icons">shopping_cart</i>
-                <span class="new badge">{this.props.items.length}</span>
+                {this.props.items.length > 0 && (
+                  <span class="new badge">{this.props.items.length}</span>
+                )}
               </Link>
             </li>
           </ul>
