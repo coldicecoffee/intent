@@ -1,46 +1,36 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  addQuantity
-} from "./actions/fetches";
+import { getAddedItems, getQuantity } from "./actions/fetches";
 
 import Total from "./Total";
 
 class Cart extends Component {
-  handleAddQuantity(id) {
-    this.props.addQuantity(id);
+  componentDidMount() {
+    this.props.getAddedItems();
+    this.props.getQuantity();
   }
-  
+
   render() {
     let addedItems = this.props.items.length ? (
       this.props.items.map(item => {
         return (
           <li className="collection-item avatar" key={item.id}>
             <div className="item-img">
-              <img src={item.img} alt={item.img} className="" />
+              <img src={item.img} alt={item.img} />
             </div>
             <div className="item-desc">
-              <span className="title">{item.title}</span>
-              <p>{item.desc}</p>
+              <span className="title">{item.description}</span>
               <p>
-                <b>Price: ${item.price}</b>
+                <b>Price: ${item.unit_price}</b>
               </p>
               <p>
                 <b>Quantity: {item.quantity}</b>
               </p>
-              {(item.id === "A" || item.id === "C")  && item.quantity >= 4 && (
+              {(item.id === "A" || item.id === "C") && item.quantity >= 4 && (
                 <p className="red-text">
                   <b>Volumn Discount Applied</b>
                 </p>
               )}
-              <button
-                className="waves-effect waves-light btn blue add"
-                onClick={() => {
-                  this.handleAddQuantity(item.id);
-                }}
-              >
-                Add one more
-              </button>
             </div>
           </li>
         );
@@ -67,8 +57,11 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    addQuantity: id => {
-      dispatch(addQuantity(id));
+    getAddedItems: () => {
+      dispatch(getAddedItems());
+    },
+    getQuantity: () => {
+      dispatch(getQuantity());
     }
   };
 };

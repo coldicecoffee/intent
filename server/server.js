@@ -69,6 +69,7 @@ function addItem(id) {
       }
 
       // console.log("Total: " + cart.total);
+      // console.log("Quanity: " + cart.list.length);
       return;
     }
   }
@@ -111,7 +112,54 @@ app.post("/addItems/:id", function(req, res) {
 app.get("/retrieveTotal", function(req, res) {
   res.json({
     message: "The total is: " + cart.total,
-    total: cart.total
+    total: cart.total.toFixed(2)
+  });
+});
+
+// For the number of items in the cart
+app.get("/getQuantity", function(req, res) {
+  res.json({
+    message: "Fetching the number of items in the cart.",
+    quantity: cart.list.length
+  });
+});
+
+// For extra credit
+app.get("/getItems", function(req, res) {
+  res.json({
+    message: "Fetching all items.",
+    items: items,
+    addedItems: cart.counter
+  });
+});
+
+// For extra credit
+app.get("/getAddedItems", function(req, res) {
+  let addedItems = [];
+  Object.keys(cart.counter).forEach(id => {
+    let item = {};
+    switch (id) {
+      case "A":
+        item = items[0];
+        break;
+      case "B":
+        item = items[1];
+        break;
+      case "C":
+        item = items[2];
+        break;
+      case "D":
+        item = items[3];
+        break;
+      default:
+        break;
+    }
+    item.quantity = cart.counter[id];
+    addedItems.push(item);
+  });
+  res.json({
+    message: "Fetching all items in the cart.",
+    addedItems: addedItems
   });
 });
 

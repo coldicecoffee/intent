@@ -12,9 +12,6 @@ class Navbar extends Component {
           </Link>
           <ul className="right">
             <li>
-              <Link to="/">Shop</Link>
-            </li>
-            <li>
               <Link to="/cart" className="cart-link">
                 <i className="material-icons">shopping_cart</i>
                 {this.props.quantity > 0 && (
