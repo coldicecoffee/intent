@@ -25,7 +25,7 @@ class Total extends Component {
                 this.handleClear();
               }}
             >
-              Remove All
+              Clear Cart
             </button>
           </li>
         </div>
