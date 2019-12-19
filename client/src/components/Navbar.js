@@ -10,7 +10,6 @@ class Navbar extends Component {
           <Link to="/" className="brand-logo">
             Shopping
           </Link>
-
           <ul className="right">
             <li>
               <Link to="/">Shop</Link>
@@ -18,8 +17,8 @@ class Navbar extends Component {
             <li>
               <Link to="/cart" className="cart-link">
                 <i className="material-icons">shopping_cart</i>
-                {this.props.items.length > 0 && (
-                  <span class="new badge">{this.props.items.length}</span>
+                {this.props.quantity > 0 && (
+                  <span className="new badge">{this.props.quantity}</span>
                 )}
               </Link>
             </li>
@@ -32,7 +31,7 @@ class Navbar extends Component {
 
 const mapStateToProps = state => {
   return {
-    items: state.addedItems
+    quantity: state.quantity
   };
 };
 
