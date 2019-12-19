@@ -60,4 +60,4 @@ npm test
 ```
 
 ---
-Client-side Inspired By [React-Shopping-Cart](https://github.com/AyaBellazreg/React-Shopping-Cart/tree/master/Shopping-Cart)
+Inspired By [React-Shopping-Cart](https://github.com/AyaBellazreg/React-Shopping-Cart/tree/master/Shopping-Cart)
