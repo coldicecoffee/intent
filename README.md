@@ -48,8 +48,10 @@ Runs on **http://localhost:3000**
 ```javascript
 /* First, Navigate to server */
 cd server
+
 /* Second, Install the needed packages */
 npm install
+
 /* Then start Node */
 npm start
 ```
@@ -61,6 +63,7 @@ Runs on **http://localhost:8888**
 ```javascript
 /* First, Navigate to server */
 cd server
+
 /* To run the tests */
 npm test
 ```
