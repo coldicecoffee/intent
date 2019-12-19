@@ -68,7 +68,7 @@ function addItem(id) {
         cart.total += uPrice * 1;
       }
 
-      // console.log("Total: " + cart.total);
+      // console.log("Total: " + cart.total.toFixed(2));
       // console.log("Quanity: " + cart.list.length);
       return;
     }

@@ -30,7 +30,7 @@ describe("Shopping Cart Tests", () => {
         .get("/retrieveTotal")
         .end((err, res) => {
           res.should.have.status(200);
-          res.body.should.have.property("total").eql(32.4);
+          res.body.should.have.property("total").eql("32.40");
           done();
         });
     });
@@ -51,7 +51,7 @@ describe("Shopping Cart Tests", () => {
         .get("/retrieveTotal")
         .end((err, res) => {
           res.should.have.status(200);
-          res.body.should.have.property("total").eql(7.25);
+          res.body.should.have.property("total").eql("7.25");
           done();
         });
     });
@@ -72,7 +72,7 @@ describe("Shopping Cart Tests", () => {
         .get("/retrieveTotal")
         .end((err, res) => {
           res.should.have.status(200);
-          res.body.should.have.property("total").eql(15.4);
+          res.body.should.have.property("total").eql("15.40");
           done();
         });
     });
