@@ -1,12 +1,15 @@
 # intent
 
-This simple application is a prototype for Shopping Cart API
+This simple application is a prototype for Shopping Cart API with a client-side and a server-side.
 
-## Overview
+## Features
 
-This application consists of a client-side and a server-side.
+* Start a new shopping-cart
+* Add items by ID to a shopping-cart
+* Retrieve the total for a shopping-cart
+* **shopping-cart is persistent between page-reloads until the user clicks a “Clear Cart” button**
 
-### Client-side
+## Client-side
 
 #### Requirements
 
@@ -28,7 +31,7 @@ npm start
 
 Runs on **http://localhost:3000**
 
-### Server-side
+## Server-side
 
 #### Requirements
 
