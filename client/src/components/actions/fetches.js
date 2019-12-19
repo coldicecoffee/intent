@@ -115,7 +115,6 @@ export function getQuantity() {
     fetch("http://localhost:8888/getQuantity")
       .then(res => res.json())
       .then(res => {
-        console.log("QUAN? " + res.quantity);
         dispatch(getQuantitySuccess(res.quantity));
       })
       .catch(err => err);
