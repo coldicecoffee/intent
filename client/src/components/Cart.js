@@ -36,7 +36,7 @@ class Cart extends Component {
         );
       })
     ) : (
-      <p>Empty Cart</p>
+      <p>&nbsp;Empty Cart</p>
     );
     return (
       <div className="container">
