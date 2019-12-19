@@ -4,7 +4,8 @@ import ItemC from "../../images/itemC.jpg";
 import ItemD from "../../images/itemD.jpg";
 import {
   ADD_TO_CART,
-  ADD_QUANTITY
+  ADD_QUANTITY,
+  CLEAR_CART
 } from "../actions/action-types/cart-actions";
 
 const initState = {
@@ -50,7 +51,9 @@ const initState = {
 const cartReducer = (state = initState, action) => {
   if (action.type === ADD_TO_CART) {
     // Call API
-    fetch("http://localhost:8888/addItems/" + action.id)
+    fetch("http://localhost:8888/addItems/" + action.id, {
+      method: "POST"
+    })
       .then(res => res.text())
       .then(res => (state.serverResponse = res))
       .catch(err => err);
@@ -78,8 +81,15 @@ const cartReducer = (state = initState, action) => {
       };
     }
   }
-  //INSIDE CART COMPONENT
   if (action.type === ADD_QUANTITY) {
+    // Call API
+    fetch("http://localhost:8888/addItems/" + action.id, {
+      method: "POST"
+    })
+      .then(res => res.text())
+      .then(res => (state.serverResponse = res))
+      .catch(err => err);
+
     let addedItem = state.items.find(item => item.id === action.id);
     addedItem.quantity += 1;
     let newTotal = state.total + addedItem.price;
@@ -87,6 +97,18 @@ const cartReducer = (state = initState, action) => {
       ...state,
       quantity: state.quantity + 1,
       total: newTotal
+    };
+  }
+  if (action.type === CLEAR_CART) {
+    fetch("http://localhost:8888/initCart")
+      .then(res => res.text())
+      .then(res => (state.serverResponse = res))
+      .catch(err => err);
+    state = initState;
+    return {
+      ...state,
+      quantity: 0,
+      total: 0
     };
   } else {
     return state;
