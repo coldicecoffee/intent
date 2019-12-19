@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 
 const items = [
@@ -84,6 +85,8 @@ function findItem(id) {
 
   return false;
 }
+
+app.use(cors());
 
 app.get("/initCart", function(req, res) {
   cart.list = [];
