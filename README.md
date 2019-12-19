@@ -28,6 +28,7 @@ npm start
 
 Runs on **http://localhost:3000**
 
+> Inspired by [React-Shopping-Cart](https://github.com/AyaBellazreg/React-Shopping-Cart/tree/master/Shopping-Cart)
 
 ### Server-side
 
