@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addToCart } from "./actions/cartActions";
+import { addToCart } from "./actions/fetches";
 
 class Home extends Component {
-  handleClick = id => {
+  handleClick(id) {
     this.props.addToCart(id);
-  };
+  }
 
   render() {
     let itemList = this.props.items.map(item => {

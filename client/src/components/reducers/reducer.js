@@ -5,8 +5,9 @@ import ItemD from "../../images/itemD.jpg";
 import {
   ADD_TO_CART,
   ADD_QUANTITY,
-  CLEAR_CART
-} from "../actions/action-types/cart-actions";
+  CLEAR_CART,
+  GET_TOTAL
+} from "../actions/actions";
 
 const initState = {
   items: [
@@ -45,70 +46,49 @@ const initState = {
   ],
   addedItems: [],
   quantity: 0,
-  serverResponse: "",
   total: 0
 };
 const cartReducer = (state = initState, action) => {
   if (action.type === ADD_TO_CART) {
-    // Call API
-    fetch("http://localhost:8888/addItems/" + action.id, {
-      method: "POST"
-    })
-      .then(res => res.text())
-      .then(res => (state.serverResponse = res))
-      .catch(err => err);
-
-    let addedItem = state.items.find(item => item.id === action.id);
+    let addedItem = state.items.find(item => action.id === item.id);
     //check if the action id exists in the addedItems
     let existed_item = state.addedItems.find(item => action.id === item.id);
     if (existed_item) {
       addedItem.quantity += 1;
       return {
         ...state,
-        quantity: state.quantity + 1,
-        total: state.total + addedItem.price
+        quantity: state.quantity + 1
       };
     } else {
       addedItem.quantity = 1;
-      //calculating the total
-      let newTotal = state.total + addedItem.price;
-
       return {
         ...state,
         addedItems: [...state.addedItems, addedItem],
-        quantity: state.quantity + 1,
-        total: newTotal
+        quantity: state.quantity + 1
       };
     }
   }
   if (action.type === ADD_QUANTITY) {
-    // Call API
-    fetch("http://localhost:8888/addItems/" + action.id, {
-      method: "POST"
-    })
-      .then(res => res.text())
-      .then(res => (state.serverResponse = res))
-      .catch(err => err);
-
-    let addedItem = state.items.find(item => item.id === action.id);
+    let addedItem = state.items.find(item => action.id === item.id);
     addedItem.quantity += 1;
-    let newTotal = state.total + addedItem.price;
     return {
       ...state,
-      quantity: state.quantity + 1,
-      total: newTotal
+      addedItems: [...state.addedItems],
+      quantity: state.quantity + 1
     };
   }
   if (action.type === CLEAR_CART) {
-    fetch("http://localhost:8888/initCart")
-      .then(res => res.text())
-      .then(res => (state.serverResponse = res))
-      .catch(err => err);
     state = initState;
     return {
       ...state,
       quantity: 0,
       total: 0
+    };
+  }
+  if (action.type === GET_TOTAL) {
+    return {
+      ...state,
+      total: action.total
     };
   } else {
     return state;

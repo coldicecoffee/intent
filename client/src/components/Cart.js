@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import {
   addQuantity
-} from "./actions/cartActions";
+} from "./actions/fetches";
 
 import Total from "./Total";
 
 class Cart extends Component {
-  //to add the quantity
-  handleAddQuantity = id => {
+  handleAddQuantity(id) {
     this.props.addQuantity(id);
-  };
+  }
+  
   render() {
     let addedItems = this.props.items.length ? (
       this.props.items.map(item => {
@@ -29,13 +28,13 @@ class Cart extends Component {
               <p>
                 <b>Quantity: {item.quantity}</b>
               </p>
-              {item.quantity >= 4 && (
+              {(item.id === "A" || item.id === "C")  && item.quantity >= 4 && (
                 <p className="red-text">
                   <b>Volumn Discount Applied</b>
                 </p>
               )}
               <button
-                className="waves-effect waves-light btn pink add"
+                className="waves-effect waves-light btn blue add"
                 onClick={() => {
                   this.handleAddQuantity(item.id);
                 }}

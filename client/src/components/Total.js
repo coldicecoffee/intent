@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { clearCart } from "./actions/cartActions";
+import { clearCart, getTotal } from "./actions/fetches";
 
 class Total extends Component {
-  handleClear = state => {
+  handleClear() {
     this.props.clearCart();
-  };
+  }
+
+  componentDidMount() {
+    this.props.getTotal();
+  }
 
   render() {
     return (
@@ -30,14 +34,6 @@ class Total extends Component {
   }
 }
 
-const fetchTotal = state => {
-  // Call API
-  fetch("http://localhost:8888/retrieveTotal")
-    .then(res => res.json())
-    .then(res => (state.total = res.total))
-    .catch(err => err);
-};
-
 const mapStateToProps = state => {
   return {
     addedItems: state.addedItems,
@@ -48,6 +44,9 @@ const mapDispatchToProps = dispatch => {
   return {
     clearCart: () => {
       dispatch(clearCart());
+    },
+    getTotal: () => {
+      dispatch(getTotal());
     }
   };
 };
