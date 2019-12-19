@@ -7,6 +7,8 @@ import {
   subtractQuantity
 } from "./actions/cartActions";
 
+import Total from "./Total";
+
 class Cart extends Component {
   //to remove the item completely
   handleRemove = id => {
@@ -81,6 +83,7 @@ class Cart extends Component {
           <h5>You have ordered:</h5>
           <ul className="collection">{addedItems}</ul>
         </div>
+        <Total />
       </div>
     );
   }
