@@ -7,6 +7,11 @@
   font-size: 2.4em;
   cursor: pointer;
 }
+.cart-link {
+  display: flex;
+  align-items: center;
+  height: 64px;
+}
 .card {
   width: 300px;
 }

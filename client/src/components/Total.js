@@ -8,7 +8,7 @@ class Total extends Component {
       <div className="container">
         <div className="collection">
           <li className="collection-item">
-            <b>Total: {this.props.total} $</b>
+            <b>Total: ${this.props.total}</b>
           </li>
         </div>
       </div>

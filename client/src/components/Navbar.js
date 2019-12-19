@@ -1,29 +1,37 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
-const Navbar = () => {
-  return (
-    <nav className="nav-wrapper">
-      <div className="container">
-        <Link to="/" className="brand-logo">
-          Shopping
-        </Link>
+import { connect } from "react-redux";
 
-        <ul className="right">
-          <li>
-            <Link to="/">Shop</Link>
-          </li>
-          <li>
-            <Link to="/cart">My cart</Link>
-          </li>
-          <li>
-            <Link to="/cart">
-              <i className="material-icons">shopping_cart</i>
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  );
+class Navbar extends Component {
+  render() {
+    return (
+      <nav className="nav-wrapper">
+        <div className="container">
+          <Link to="/" className="brand-logo">
+            Shopping
+          </Link>
+
+          <ul className="right">
+            <li>
+              <Link to="/">Shop</Link>
+            </li>
+            <li>
+              <Link to="/cart" className="cart-link">
+                <i className="material-icons">shopping_cart</i>
+                <span class="new badge">{this.props.items.length}</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    items: state.addedItems
+  };
 };
 
-export default Navbar;
+export default connect(mapStateToProps)(Navbar);
