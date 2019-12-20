@@ -58,7 +58,7 @@ npm start
 
 Runs on **http://localhost:8888**
 
-#### Entry points
+#### Entry Points
 
 * **/initCart** - To start a new shopping-cart
 * **/addItems/\<id\>** - To add items by ID to a shopping-cart
