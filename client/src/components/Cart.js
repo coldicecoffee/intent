@@ -26,9 +26,10 @@ class Cart extends Component {
               <p>
                 <b>Quantity: {item.quantity}</b>
               </p>
-              {(item.id === "A" || item.id === "C") && item.quantity >= 4 && (
+              {((item.id === "A" && item.quantity >= 4) ||
+                (item.id === "C" && item.quantity >= 6)) && (
                 <p className="red-text">
-                  <b>Volumn Discount Applied</b>
+                  <b>Volume Discount Applied</b>
                 </p>
               )}
             </div>
