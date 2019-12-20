@@ -1,6 +1,6 @@
-# <intent>
+# \<intent\>
 
-This simple application is for <intent> Shopping Cart API with a client-side and a server-side.
+This simple application is for \<intent\> Shopping Cart API with a client-side and a server-side.
 
 ## Features
 
