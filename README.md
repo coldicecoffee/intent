@@ -58,6 +58,17 @@ npm start
 
 Runs on **http://localhost:8888**
 
+#### Entry points
+
+* **/initCart** - To start a new shopping-cart
+* **/addItems/\<id\>** - To add items by ID to a shopping-cart
+* **/retrieveTotal** - To retrieve the total for a shopping-cart
+* **/getQuantity\*** - To retrieve the total number of items in a shopping-cart
+* **/getItems\*** - To retrieve all the items in the database
+* **/getAddedItems\*** - To retrieve all the items in a shopping-cart
+
+> \* are for the extra-credit.
+
 #### About Tests
 
 ```javascript
