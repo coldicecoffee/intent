@@ -67,7 +67,7 @@ Runs on **http://localhost:8888**
 * **/getItems\*** - To retrieve all the items in the database
 * **/getAddedItems\*** - To retrieve all the items in a shopping-cart
 
-> \* are for the extra-credit.
+> getQuantity\*, getItems\*, getAddedItems\* are for the extra-credit.
 
 #### About Tests
 
